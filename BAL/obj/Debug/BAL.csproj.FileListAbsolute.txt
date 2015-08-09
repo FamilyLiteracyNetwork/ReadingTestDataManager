@@ -1,0 +1,30 @@
+C:\Users\Family Literacy Net\Desktop\ReadingDataExtrapulator\BAL\bin\Debug\BAL.dll.config
+C:\Users\Family Literacy Net\Desktop\ReadingDataExtrapulator\BAL\bin\Debug\BAL.dll
+C:\Users\Family Literacy Net\Desktop\ReadingDataExtrapulator\BAL\bin\Debug\BAL.pdb
+C:\Users\Family Literacy Net\Desktop\ReadingDataExtrapulator\BAL\bin\Debug\DAL.dll
+C:\Users\Family Literacy Net\Desktop\ReadingDataExtrapulator\BAL\bin\Debug\EntityFramework.dll
+C:\Users\Family Literacy Net\Desktop\ReadingDataExtrapulator\BAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Family Literacy Net\Desktop\ReadingDataExtrapulator\BAL\bin\Debug\DAL.pdb
+C:\Users\Family Literacy Net\Desktop\ReadingDataExtrapulator\BAL\bin\Debug\EntityFramework.xml
+C:\Users\Family Literacy Net\Desktop\ReadingDataExtrapulator\BAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Family Literacy Net\Desktop\ReadingDataExtrapulator\BAL\obj\Debug\BAL.csprojResolveAssemblyReference.cache
+C:\Users\Family Literacy Net\Desktop\ReadingDataExtrapulator\BAL\obj\Debug\BAL.csproj.ResolveComReference.cache
+C:\Users\Family Literacy Net\Desktop\ReadingDataExtrapulator\BAL\obj\Debug\ReadingTestScores.Properties.Resources.resources
+C:\Users\Family Literacy Net\Desktop\ReadingDataExtrapulator\BAL\obj\Debug\BAL.csproj.GenerateResource.Cache
+C:\Users\Family Literacy Net\Desktop\ReadingDataExtrapulator\BAL\obj\Debug\BAL.dll
+C:\Users\Family Literacy Net\Desktop\ReadingDataExtrapulator\BAL\obj\Debug\BAL.pdb
+C:\Users\CobySolutions\Desktop\ReadingDataExtrapulator\BAL\obj\Debug\BAL.csprojResolveAssemblyReference.cache
+C:\Users\CobySolutions\Desktop\ReadingDataExtrapulator\BAL\obj\Debug\BAL.csproj.ResolveComReference.cache
+C:\Users\CobySolutions\Desktop\ReadingDataExtrapulator\BAL\obj\Debug\ReadingTestScores.Properties.Resources.resources
+C:\Users\CobySolutions\Desktop\ReadingDataExtrapulator\BAL\obj\Debug\BAL.csproj.GenerateResource.Cache
+C:\Users\CobySolutions\Desktop\ReadingDataExtrapulator\BAL\bin\Debug\BAL.dll.config
+C:\Users\CobySolutions\Desktop\ReadingDataExtrapulator\BAL\bin\Debug\BAL.dll
+C:\Users\CobySolutions\Desktop\ReadingDataExtrapulator\BAL\bin\Debug\BAL.pdb
+C:\Users\CobySolutions\Desktop\ReadingDataExtrapulator\BAL\bin\Debug\DAL.dll
+C:\Users\CobySolutions\Desktop\ReadingDataExtrapulator\BAL\bin\Debug\EntityFramework.dll
+C:\Users\CobySolutions\Desktop\ReadingDataExtrapulator\BAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\CobySolutions\Desktop\ReadingDataExtrapulator\BAL\bin\Debug\DAL.pdb
+C:\Users\CobySolutions\Desktop\ReadingDataExtrapulator\BAL\bin\Debug\EntityFramework.xml
+C:\Users\CobySolutions\Desktop\ReadingDataExtrapulator\BAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\CobySolutions\Desktop\ReadingDataExtrapulator\BAL\obj\Debug\BAL.dll
+C:\Users\CobySolutions\Desktop\ReadingDataExtrapulator\BAL\obj\Debug\BAL.pdb

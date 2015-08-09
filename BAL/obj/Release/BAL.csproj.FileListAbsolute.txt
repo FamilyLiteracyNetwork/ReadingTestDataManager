@@ -1,0 +1,13 @@
+C:\Users\Family Literacy Net\Desktop\ReadingDataExtrapulator\BAL\obj\Release\BAL.csprojResolveAssemblyReference.cache
+C:\Users\Family Literacy Net\Desktop\ReadingDataExtrapulator\BAL\obj\Release\BAL.csproj.ResolveComReference.cache
+C:\Users\Family Literacy Net\Desktop\ReadingDataExtrapulator\BAL\obj\Release\BAL.Properties.Resources.resources
+C:\Users\Family Literacy Net\Desktop\ReadingDataExtrapulator\BAL\obj\Release\BAL.csproj.GenerateResource.Cache
+C:\Users\Family Literacy Net\Desktop\ReadingDataExtrapulator\BAL\bin\Release\BAL.dll.config
+C:\Users\Family Literacy Net\Desktop\ReadingDataExtrapulator\BAL\bin\Release\BAL.dll
+C:\Users\Family Literacy Net\Desktop\ReadingDataExtrapulator\BAL\bin\Release\BAL.pdb
+C:\Users\Family Literacy Net\Desktop\ReadingDataExtrapulator\BAL\bin\Release\DAL.dll
+C:\Users\Family Literacy Net\Desktop\ReadingDataExtrapulator\BAL\bin\Release\EntityFramework.dll
+C:\Users\Family Literacy Net\Desktop\ReadingDataExtrapulator\BAL\bin\Release\DAL.pdb
+C:\Users\Family Literacy Net\Desktop\ReadingDataExtrapulator\BAL\bin\Release\EntityFramework.xml
+C:\Users\Family Literacy Net\Desktop\ReadingDataExtrapulator\BAL\obj\Release\BAL.dll
+C:\Users\Family Literacy Net\Desktop\ReadingDataExtrapulator\BAL\obj\Release\BAL.pdb

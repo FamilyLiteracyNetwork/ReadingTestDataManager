@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ReadingDataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="GuardianProfile">
+    <Key>
+      <PropertyRef Name="GuardianID" />
+    </Key>
+    <Property Name="GuardianID" Type="int" Nullable="false" />
+    <Property Name="Last Name" Type="varchar(max)" />
+    <Property Name="First Name" Type="varchar(max)" />
+    <Property Name="Guardian Type" Type="varchar" MaxLength="50" />
+    <Property Name="Email" Type="varchar(max)" />
+    <Property Name="Alt Email" Type="varchar(max)" />
+    <Property Name="Address" Type="varchar(max)" />
+    <Property Name="City" Type="varchar(max)" />
+    <Property Name="State" Type="varchar" MaxLength="5" />
+    <Property Name="Zip Code" Type="varchar" MaxLength="20" />
+    <Property Name="Home Phone" Type="nchar" MaxLength="30" />
+    <Property Name="Cell Phone" Type="nchar" MaxLength="30" />
+    <Property Name="Work" Type="nchar" MaxLength="30" />
+    <Property Name="Fax" Type="nchar" MaxLength="30" />
+    <Property Name="Other" Type="nchar" MaxLength="30" />
+    <Property Name="Billing" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="Stud_Guard_Rel">
+    <Key>
+      <PropertyRef Name="Count" />
+    </Key>
+    <Property Name="Count" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StudentID" Type="int" />
+    <Property Name="GuardianID" Type="int" />
+  </EntityType>
+  <EntityType Name="Student_Testing_Measurements">
+    <Key>
+      <PropertyRef Name="Count" />
+    </Key>
+    <Property Name="Count" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StudentId" Type="int" />
+    <Property Name="Date" Type="date" />
+    <Property Name="Correct_Words_Each_Minute" Type="int" />
+    <Property Name="Errors" Type="int" />
+    <Property Name="Timed" Type="smalldatetime" />
+    <Property Name="Word_Count" Type="int" />
+    <Property Name="Test_Method" Type="nvarchar" MaxLength="50" />
+    <Property Name="Text_Source" Type="nvarchar" MaxLength="50" />
+    <Property Name="Reading_Level" Type="nvarchar" MaxLength="50" />
+    <Property Name="Passage" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="StudentCurrentReadingLevel">
+    <Key>
+      <PropertyRef Name="key" />
+    </Key>
+    <Property Name="key" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StudentId" Type="int" />
+    <Property Name="Reading_Level" Type="nvarchar" MaxLength="20" />
+    <Property Name="Date" Type="smalldatetime" />
+    <Property Name="Hour_Number" Type="int" />
+  </EntityType>
+  <EntityType Name="StudentHour">
+    <Key>
+      <PropertyRef Name="StudentId" />
+    </Key>
+    <Property Name="StudentId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Date" Type="date" />
+    <Property Name="Hour_No" Type="int" />
+    <Property Name="ReadingLevel" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="StudentInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Campus" Type="nvarchar" MaxLength="20" />
+    <Property Name="InitialDate" Type="nvarchar" MaxLength="15" />
+    <Property Name="FinalDate" Type="nvarchar" MaxLength="15" />
+    <Property Name="Zip Code" Type="nvarchar" MaxLength="10" />
+    <Property Name="Student" Type="nvarchar(max)" />
+    <Property Name="Parent First Name" Type="nvarchar(max)" />
+    <Property Name="Parent Last Name" Type="nvarchar(max)" />
+    <Property Name="Phone 1" Type="nvarchar" MaxLength="255" />
+    <Property Name="Phone 2" Type="nvarchar" MaxLength="255" />
+    <Property Name="Phone 3" Type="nvarchar" MaxLength="255" />
+    <Property Name="Email " Type="nvarchar" MaxLength="255" />
+    <Property Name="Address" Type="nvarchar" MaxLength="255" />
+    <Property Name="City" Type="nvarchar" MaxLength="255" />
+    <Property Name="State" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="StudentNote">
+    <Key>
+      <PropertyRef Name="Count" />
+    </Key>
+    <Property Name="Count" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StudentId" Type="int" />
+    <Property Name="RemarkDate" Type="date" />
+    <Property Name="RemarkHeader" Type="nvarchar(max)" />
+    <Property Name="Remark" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="StudentProfile">
+    <Key>
+      <PropertyRef Name="StudentID" />
+    </Key>
+    <Property Name="StudentID" Type="int" Nullable="false" />
+    <Property Name="First Name" Type="varchar(max)" />
+    <Property Name="Last Name" Type="varchar(max)" />
+    <Property Name="DOB" Type="date" />
+    <Property Name="Gender" Type="varchar" MaxLength="25" />
+    <Property Name="District Zone" Type="varchar(max)" />
+    <Property Name="School Attending" Type="varchar(max)" />
+    <Property Name="Initial Inquiry Date" Type="date" />
+    <Property Name="Assessment Date" Type="date" />
+    <Property Name="Report Discussion Date" Type="date" />
+    <Property Name="Tutoring Start Date" Type="date" />
+    <Property Name="Tutoring Stop Date" Type="date" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="InitialNotes" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="StudentSchool">
+    <Key>
+      <PropertyRef Name="Count" />
+    </Key>
+    <Property Name="Count" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StudentId" Type="int" />
+    <Property Name="SchoolDist" Type="nvarchar(max)" />
+    <Property Name="SchoolName" Type="nvarchar(max)" />
+    <Property Name="Prv_Pub" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="ReadingDataModelStoreContainer">
+    <EntitySet Name="GuardianProfile" EntityType="Self.GuardianProfile" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Stud_Guard_Rel" EntityType="Self.Stud_Guard_Rel" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Student_Testing_Measurements" EntityType="Self.Student_Testing_Measurements" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StudentCurrentReadingLevel" EntityType="Self.StudentCurrentReadingLevel" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StudentHour" EntityType="Self.StudentHour" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StudentInfo" EntityType="Self.StudentInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StudentNote" EntityType="Self.StudentNote" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StudentProfile" EntityType="Self.StudentProfile" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StudentSchool" EntityType="Self.StudentSchool" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

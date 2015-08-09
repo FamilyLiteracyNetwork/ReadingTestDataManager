@@ -1,0 +1,24 @@
+C:\Users\Family Literacy Net\Desktop\ReadingDataExtrapulator\DAL\bin\Debug\DAL.dll.config
+C:\Users\Family Literacy Net\Desktop\ReadingDataExtrapulator\DAL\bin\Debug\DAL.dll
+C:\Users\Family Literacy Net\Desktop\ReadingDataExtrapulator\DAL\bin\Debug\DAL.pdb
+C:\Users\Family Literacy Net\Desktop\ReadingDataExtrapulator\DAL\bin\Debug\EntityFramework.dll
+C:\Users\Family Literacy Net\Desktop\ReadingDataExtrapulator\DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Family Literacy Net\Desktop\ReadingDataExtrapulator\DAL\bin\Debug\EntityFramework.xml
+C:\Users\Family Literacy Net\Desktop\ReadingDataExtrapulator\DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Family Literacy Net\Desktop\ReadingDataExtrapulator\DAL\obj\Debug\DAL.Properties.Resources.resources
+C:\Users\Family Literacy Net\Desktop\ReadingDataExtrapulator\DAL\obj\Debug\DAL.csproj.GenerateResource.Cache
+C:\Users\Family Literacy Net\Desktop\ReadingDataExtrapulator\DAL\obj\Debug\DAL.dll
+C:\Users\Family Literacy Net\Desktop\ReadingDataExtrapulator\DAL\obj\Debug\DAL.pdb
+C:\Users\Family Literacy Net\Desktop\ReadingDataExtrapulator\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+C:\Users\CobySolutions\Desktop\ReadingDataExtrapulator\DAL\bin\Debug\DAL.dll.config
+C:\Users\CobySolutions\Desktop\ReadingDataExtrapulator\DAL\bin\Debug\DAL.dll
+C:\Users\CobySolutions\Desktop\ReadingDataExtrapulator\DAL\bin\Debug\DAL.pdb
+C:\Users\CobySolutions\Desktop\ReadingDataExtrapulator\DAL\bin\Debug\EntityFramework.dll
+C:\Users\CobySolutions\Desktop\ReadingDataExtrapulator\DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\CobySolutions\Desktop\ReadingDataExtrapulator\DAL\bin\Debug\EntityFramework.xml
+C:\Users\CobySolutions\Desktop\ReadingDataExtrapulator\DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\CobySolutions\Desktop\ReadingDataExtrapulator\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+C:\Users\CobySolutions\Desktop\ReadingDataExtrapulator\DAL\obj\Debug\DAL.Properties.Resources.resources
+C:\Users\CobySolutions\Desktop\ReadingDataExtrapulator\DAL\obj\Debug\DAL.csproj.GenerateResource.Cache
+C:\Users\CobySolutions\Desktop\ReadingDataExtrapulator\DAL\obj\Debug\DAL.dll
+C:\Users\CobySolutions\Desktop\ReadingDataExtrapulator\DAL\obj\Debug\DAL.pdb

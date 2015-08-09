@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ReadingDataModelStoreContainer" CdmEntityContainer="ReadingDataEntities">
+    <EntitySetMapping Name="GuardianProfiles">
+      <EntityTypeMapping TypeName="ReadingDataModel.GuardianProfile">
+        <MappingFragment StoreEntitySet="GuardianProfile">
+          <ScalarProperty Name="GuardianID" ColumnName="GuardianID" />
+          <ScalarProperty Name="Last_Name" ColumnName="Last Name" />
+          <ScalarProperty Name="First_Name" ColumnName="First Name" />
+          <ScalarProperty Name="Guardian_Type" ColumnName="Guardian Type" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Alt_Email" ColumnName="Alt Email" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Zip_Code" ColumnName="Zip Code" />
+          <ScalarProperty Name="Home_Phone" ColumnName="Home Phone" />
+          <ScalarProperty Name="Cell_Phone" ColumnName="Cell Phone" />
+          <ScalarProperty Name="Work" ColumnName="Work" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="Other" ColumnName="Other" />
+          <ScalarProperty Name="Billing" ColumnName="Billing" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Stud_Guard_Rel">
+      <EntityTypeMapping TypeName="ReadingDataModel.Stud_Guard_Rel">
+        <MappingFragment StoreEntitySet="Stud_Guard_Rel">
+          <ScalarProperty Name="Count" ColumnName="Count" />
+          <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+          <ScalarProperty Name="GuardianID" ColumnName="GuardianID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Student_Testing_Measurements">
+      <EntityTypeMapping TypeName="ReadingDataModel.Student_Testing_Measurements">
+        <MappingFragment StoreEntitySet="Student_Testing_Measurements">
+          <ScalarProperty Name="Count" ColumnName="Count" />
+          <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Correct_Words_Each_Minute" ColumnName="Correct_Words_Each_Minute" />
+          <ScalarProperty Name="Errors" ColumnName="Errors" />
+          <ScalarProperty Name="Timed" ColumnName="Timed" />
+          <ScalarProperty Name="Word_Count" ColumnName="Word_Count" />
+          <ScalarProperty Name="Test_Method" ColumnName="Test_Method" />
+          <ScalarProperty Name="Text_Source" ColumnName="Text_Source" />
+          <ScalarProperty Name="Reading_Level" ColumnName="Reading_Level" />
+          <ScalarProperty Name="Passage" ColumnName="Passage" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StudentCurrentReadingLevels">
+      <EntityTypeMapping TypeName="ReadingDataModel.StudentCurrentReadingLevel">
+        <MappingFragment StoreEntitySet="StudentCurrentReadingLevel">
+          <ScalarProperty Name="key" ColumnName="key" />
+          <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+          <ScalarProperty Name="Reading_Level" ColumnName="Reading_Level" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Hour_Number" ColumnName="Hour_Number" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StudentHours">
+      <EntityTypeMapping TypeName="ReadingDataModel.StudentHour">
+        <MappingFragment StoreEntitySet="StudentHour">
+          <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Hour_No" ColumnName="Hour_No" />
+          <ScalarProperty Name="ReadingLevel" ColumnName="ReadingLevel" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StudentInfoes">
+      <EntityTypeMapping TypeName="ReadingDataModel.StudentInfo">
+        <MappingFragment StoreEntitySet="StudentInfo">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Campus" ColumnName="Campus" />
+          <ScalarProperty Name="InitialDate" ColumnName="InitialDate" />
+          <ScalarProperty Name="FinalDate" ColumnName="FinalDate" />
+          <ScalarProperty Name="Zip_Code" ColumnName="Zip Code" />
+          <ScalarProperty Name="Student" ColumnName="Student" />
+          <ScalarProperty Name="Parent_First_Name" ColumnName="Parent First Name" />
+          <ScalarProperty Name="Parent_Last_Name" ColumnName="Parent Last Name" />
+          <ScalarProperty Name="Phone_1" ColumnName="Phone 1" />
+          <ScalarProperty Name="Phone_2" ColumnName="Phone 2" />
+          <ScalarProperty Name="Phone_3" ColumnName="Phone 3" />
+          <ScalarProperty Name="Email_" ColumnName="Email " />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="State" ColumnName="State" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StudentNotes">
+      <EntityTypeMapping TypeName="ReadingDataModel.StudentNote">
+        <MappingFragment StoreEntitySet="StudentNote">
+          <ScalarProperty Name="Count" ColumnName="Count" />
+          <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+          <ScalarProperty Name="RemarkDate" ColumnName="RemarkDate" />
+          <ScalarProperty Name="RemarkHeader" ColumnName="RemarkHeader" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StudentProfiles">
+      <EntityTypeMapping TypeName="ReadingDataModel.StudentProfile">
+        <MappingFragment StoreEntitySet="StudentProfile">
+          <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+          <ScalarProperty Name="First_Name" ColumnName="First Name" />
+          <ScalarProperty Name="Last_Name" ColumnName="Last Name" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="District_Zone" ColumnName="District Zone" />
+          <ScalarProperty Name="School_Attending" ColumnName="School Attending" />
+          <ScalarProperty Name="Initial_Inquiry_Date" ColumnName="Initial Inquiry Date" />
+          <ScalarProperty Name="Assessment_Date" ColumnName="Assessment Date" />
+          <ScalarProperty Name="Report_Discussion_Date" ColumnName="Report Discussion Date" />
+          <ScalarProperty Name="Tutoring_Start_Date" ColumnName="Tutoring Start Date" />
+          <ScalarProperty Name="Tutoring_Stop_Date" ColumnName="Tutoring Stop Date" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="InitialNotes" ColumnName="InitialNotes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StudentSchools">
+      <EntityTypeMapping TypeName="ReadingDataModel.StudentSchool">
+        <MappingFragment StoreEntitySet="StudentSchool">
+          <ScalarProperty Name="Count" ColumnName="Count" />
+          <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+          <ScalarProperty Name="SchoolDist" ColumnName="SchoolDist" />
+          <ScalarProperty Name="SchoolName" ColumnName="SchoolName" />
+          <ScalarProperty Name="Prv_Pub" ColumnName="Prv_Pub" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TestScore_Standard_Raw">
+      <EntityTypeMapping TypeName="ReadingDataModel.TestScore_Standard_Raw">
+        <MappingFragment StoreEntitySet="TestScore_Standard_Raw">
+          <ScalarProperty Name="StandardScore" ColumnName="StandardScore" />
+          <ScalarProperty Name="RawScore" ColumnName="RawScore" />
+          <ScalarProperty Name="TestTitle" ColumnName="TestTitle" />
+          <ScalarProperty Name="TestIndex" ColumnName="TestIndex" />
+          <ScalarProperty Name="StudentNo" ColumnName="StudentNo" />
+          <ScalarProperty Name="Index" ColumnName="Index" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

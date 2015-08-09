@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ReadingDataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="GuardianProfile">
+    <Key>
+      <PropertyRef Name="GuardianID" />
+    </Key>
+    <Property Name="GuardianID" Type="Int32" Nullable="false" />
+    <Property Name="Last_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="First_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Guardian_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Alt_Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="City" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="State" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="Zip_Code" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Home_Phone" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+    <Property Name="Cell_Phone" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+    <Property Name="Work" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+    <Property Name="Fax" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+    <Property Name="Other" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+    <Property Name="Billing" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Stud_Guard_Rel">
+    <Key>
+      <PropertyRef Name="Count" />
+    </Key>
+    <Property Name="Count" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StudentID" Type="Int32" />
+    <Property Name="GuardianID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Student_Testing_Measurements">
+    <Key>
+      <PropertyRef Name="Count" />
+    </Key>
+    <Property Name="Count" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StudentId" Type="Int32" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <Property Name="Correct_Words_Each_Minute" Type="Int32" />
+    <Property Name="Errors" Type="Int32" />
+    <Property Name="Timed" Type="DateTime" Precision="0" />
+    <Property Name="Word_Count" Type="Int32" />
+    <Property Name="Test_Method" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Text_Source" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Reading_Level" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Passage" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="StudentCurrentReadingLevel">
+    <Key>
+      <PropertyRef Name="key" />
+    </Key>
+    <Property Name="key" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StudentId" Type="Int32" />
+    <Property Name="Reading_Level" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <Property Name="Hour_Number" Type="Int32" />
+  </EntityType>
+  <EntityType Name="StudentHour">
+    <Key>
+      <PropertyRef Name="StudentId" />
+    </Key>
+    <Property Name="StudentId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <Property Name="Hour_No" Type="Int32" />
+    <Property Name="ReadingLevel" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+  </EntityType>
+  <EntityType Name="StudentInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Campus" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="InitialDate" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="FinalDate" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="Zip_Code" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Student" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Parent_First_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Parent_Last_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Phone_1" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Phone_2" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Phone_3" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Email_" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="State" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="StudentNote">
+    <Key>
+      <PropertyRef Name="Count" />
+    </Key>
+    <Property Name="Count" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StudentId" Type="Int32" />
+    <Property Name="RemarkDate" Type="DateTime" Precision="0" />
+    <Property Name="RemarkHeader" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="StudentProfile">
+    <Key>
+      <PropertyRef Name="StudentID" />
+    </Key>
+    <Property Name="StudentID" Type="Int32" Nullable="false" />
+    <Property Name="First_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Last_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="DOB" Type="DateTime" Precision="0" />
+    <Property Name="Gender" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="District_Zone" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="School_Attending" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Initial_Inquiry_Date" Type="DateTime" Precision="0" />
+    <Property Name="Assessment_Date" Type="DateTime" Precision="0" />
+    <Property Name="Report_Discussion_Date" Type="DateTime" Precision="0" />
+    <Property Name="Tutoring_Start_Date" Type="DateTime" Precision="0" />
+    <Property Name="Tutoring_Stop_Date" Type="DateTime" Precision="0" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="InitialNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="StudentSchool">
+    <Key>
+      <PropertyRef Name="Count" />
+    </Key>
+    <Property Name="Count" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StudentId" Type="Int32" />
+    <Property Name="SchoolDist" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SchoolName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Prv_Pub" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="ReadingDataEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="GuardianProfiles" EntityType="Self.GuardianProfile" />
+    <EntitySet Name="Stud_Guard_Rel" EntityType="Self.Stud_Guard_Rel" />
+    <EntitySet Name="Student_Testing_Measurements" EntityType="Self.Student_Testing_Measurements" />
+    <EntitySet Name="StudentCurrentReadingLevels" EntityType="Self.StudentCurrentReadingLevel" />
+    <EntitySet Name="StudentHours" EntityType="Self.StudentHour" />
+    <EntitySet Name="StudentInfoes" EntityType="Self.StudentInfo" />
+    <EntitySet Name="StudentNotes" EntityType="Self.StudentNote" />
+    <EntitySet Name="StudentProfiles" EntityType="Self.StudentProfile" />
+    <EntitySet Name="StudentSchools" EntityType="Self.StudentSchool" />
+    <EntitySet Name="TestScore_Standard_Raw" EntityType="ReadingDataModel.TestScore_Standard_Raw" />
+  </EntityContainer>
+  <EntityType Name="TestScore_Standard_Raw">
+    <Key>
+      <PropertyRef Name="Index" />
+    </Key>
+    <Property Name="Index" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StudentNo" Type="Int32" Nullable="false" />
+    <Property Name="TestIndex" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="TestTitle" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="RawScore" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="StandardScore" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>
