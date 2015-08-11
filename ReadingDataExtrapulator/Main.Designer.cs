@@ -1,4 +1,4 @@
-﻿namespace ReadingDataExtrapulator
+﻿namespace ReadingTestScores
 {
     partial class Main
     {

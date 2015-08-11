@@ -1,30 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.ComponentModel;
-using System.Data;
-using System.Windows.Forms;
 using System.IO;
+using System.Linq;
+using System.Windows.Forms;
 using DAL;
-using BAL;
-using System.Runtime.InteropServices;
-using ReadingTestScores.ProcessAssessmentDataToDatabase;
+using Microsoft.Practices.Unity;
 using ReadingTestScores.ProcessAssessmentDataToDatabase.StoreAssessmentTestData;
 using ReadingTestScores.TestCollections.ProcessAssessmentDataToDatabase;
 using System.Collections;
-using ReadingTestScores;
 
-
-namespace ReadingDataExtrapulator
+namespace ReadingTestScores
 {
     public partial class Main : Form
     {
-        BackgroundWorker bgwrkTest = new BackgroundWorker();
-        BackgroundWorker bgwrkParseExcelFile = new BackgroundWorker();
-        List<Files> GetFile = new List<Files>();
+        BackgroundWorker _bgwrkTest = new BackgroundWorker();
+        readonly BackgroundWorker _bgwrkParseExcelFile = new BackgroundWorker();
+        List<Files> _getFile = new List<Files>();
         public Main()
         {
             InitializeComponent();
@@ -34,9 +26,6 @@ namespace ReadingDataExtrapulator
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
-
-         
 
         }
 
@@ -50,27 +39,21 @@ namespace ReadingDataExtrapulator
             bgwrkTest.RunWorkerAsync();*/
 
           
-           ProcessingAssessmentTest GetTest = new AssessmentTestDataParser();
-           List<TestAssessmentMeasurmentCollection> testData = new List<TestAssessmentMeasurmentCollection>();
-           List<TestAssessmentHeaderCollection> headerData = new List<TestAssessmentHeaderCollection>();
+           ProcessingAssessmentTest getTest = new AssessmentTestDataParser();
+           List<TestAssessmentMeasurmentCollection> testData=null;
+           List<TestAssessmentHeaderCollection> headerData=null;
 
             // Open,Extract and parse Assessment Test Data//
-       testData = GetTest.GetTestMeasures(@"C:\AssessmentXLSfiles\AssesmentAudit\SavedAssessments\Andres Soto_Keep.xls");
+       testData = getTest.GetTestMeasures(@"C:\AssessmentXLSfiles\AssesmentAudit\SavedAssessments\Andres Soto_Keep.xls");
 //
-       headerData = GetTest.GetHeader(@"C:\AssessmentXLSfiles\AssesmentAudit\SavedAssessments\Andres Soto_Keep.xls");
+       headerData = getTest.GetHeader(@"C:\AssessmentXLSfiles\AssesmentAudit\SavedAssessments\Andres Soto_Keep.xls");
 
             // Save Assesment Test data to the data store //
-            StoreAssessmentTest AssesmentTest = new StoreAssessmentTestDataFactory();
-            AssesmentTest.SaveData(testData, headerData);
+            StoreAssessmentTest assesmentTest = new StoreAssessmentTestDataFactory();
+            assesmentTest.SaveData(testData, headerData);
             
         }
 
-       
-
-       
-
-       
-       
 
         private void bgwrkTest_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
@@ -103,11 +86,11 @@ namespace ReadingDataExtrapulator
         private void button3_Click(object sender, EventArgs e)
         {
 
-                bgwrkParseExcelFile.WorkerReportsProgress = true;
-                bgwrkParseExcelFile.DoWork += bgwrkParseExcelFile_DoWork;
-                bgwrkParseExcelFile.ProgressChanged += bgwrkParseExcelFile_ProgressChanged;
-                bgwrkParseExcelFile.RunWorkerCompleted += bgwrkParseExcelFile_RunWorkerCompleted;
-                bgwrkParseExcelFile.RunWorkerAsync();
+                _bgwrkParseExcelFile.WorkerReportsProgress = true;
+                _bgwrkParseExcelFile.DoWork += bgwrkParseExcelFile_DoWork;
+                _bgwrkParseExcelFile.ProgressChanged += bgwrkParseExcelFile_ProgressChanged;
+                _bgwrkParseExcelFile.RunWorkerCompleted += bgwrkParseExcelFile_RunWorkerCompleted;
+                _bgwrkParseExcelFile.RunWorkerAsync();
                 dataGridView1.Columns.Add("File_Path", "File");
                 dataGridView1.Columns.Add("Status", "State");
                 dataGridView1.Columns[0].Width = 220;
@@ -120,7 +103,7 @@ namespace ReadingDataExtrapulator
             if (e.Cancelled)
             {
                 // The user canceled the operation.
-                MessageBox.Show("Operation was canceled");
+                MessageBox.Show(@"Operation was canceled");
             }
             else if (e.Error != null)
             {
@@ -144,7 +127,7 @@ namespace ReadingDataExtrapulator
 
                 var rows = dataGridView1.Rows;
                 rows.Add(status,"Loading Data");
-                label2.Text = "Importing Excel File";
+                label2.Text = @"Importing Excel File";
             }
             else if (e.ProgressPercentage > 0 && e.ProgressPercentage<=100)
             {
@@ -160,9 +143,11 @@ namespace ReadingDataExtrapulator
         private void bgwrkParseExcelFile_DoWork(object sender, DoWorkEventArgs e)
         {
             try{
-            ParseAssessmentTest ExtractIndex = new RejectTestIndex();
-            ParseAssessmentTest RetainIndex = new RetainTestIndex();
-            List<EntireTestCollection> indicies = new List<EntireTestCollection>();
+                IUnityContainer objOpen = new UnityContainer();
+                objOpen.RegisterType<ParseAssessmentTest, RejectTestIndex>();
+                objOpen.RegisterType<ParseAssessmentTest, RetainTestIndex>();
+         
+            var indicies = new List<EntireTestCollection>();
             var files = from file in Directory.EnumerateFiles(@"C:\AssessmentXLSfiles", "*.xls", SearchOption.AllDirectories)
                         from line in File.ReadLines(file)
                         where line.Contains(".xls")
@@ -171,32 +156,39 @@ namespace ReadingDataExtrapulator
                             File = file,
                         };
 
+             
+              
            foreach (var excelFile in files)
               {
-                  bgwrkParseExcelFile.ReportProgress(0, excelFile.File);
-                //Create assessment data to keep
-                  bgwrkParseExcelFile.ReportProgress(1, "Preparing to Parse Good Data");
-              indicies = RetainIndex.Open(excelFile.File, indicies, bgwrkParseExcelFile);
-                //Create Rejection
-              bgwrkParseExcelFile.ReportProgress(1, "Preparing to Parse Rejected Data");
-              indicies = ExtractIndex.Open(excelFile.File, indicies, bgwrkParseExcelFile);
-              bgwrkParseExcelFile.ReportProgress(0, "Completed");
+
+                  _bgwrkParseExcelFile.ReportProgress(0, excelFile.File);
+                //Create assessment data file to keep//
+                  _bgwrkParseExcelFile.ReportProgress(1, "Preparing to Parse Good Data");
+                  var keep = objOpen.Resolve<RetainTestIndex>();
+         
+                  indicies = keep.Open(excelFile.File, indicies, _bgwrkParseExcelFile);
+                //Create Rejected assessment data file//
+              _bgwrkParseExcelFile.ReportProgress(1, "Preparing to Parse Rejected Data");
+           
+              var reject = objOpen.Resolve<RejectTestIndex>();
+             indicies=reject.Open(excelFile.File, indicies, _bgwrkParseExcelFile);
+              _bgwrkParseExcelFile.ReportProgress(0, "Completed");
              
               }
 
-           if (bgwrkParseExcelFile.CancellationPending)
+           if (_bgwrkParseExcelFile.CancellationPending)
            {
                e.Cancel = true;
            }
-            Console.WriteLine("{0} files found.", files.Count().ToString());
+          
               }
-            catch (UnauthorizedAccessException UAEx)
+            catch (UnauthorizedAccessException uaEx)
             {
-                Console.WriteLine(UAEx.Message);
+                Console.WriteLine(uaEx.Message);
             }
-            catch (PathTooLongException PathEx)
+            catch (PathTooLongException pathEx)
             {
-                Console.WriteLine(PathEx.Message);
+                Console.WriteLine(pathEx.Message);
             }
          
         }
@@ -208,10 +200,10 @@ namespace ReadingDataExtrapulator
     {
         private String _filepath = string.Empty;
         private String _state = string.Empty;
-        public Files(string _filepath, string _state)
+        public Files(string filepath, string state)
         {
-            Filepath = _filepath;
-            Status = _state;
+            Filepath = filepath;
+            Status = state;
         }
 
 

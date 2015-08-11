@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ReadingDataExtrapulator
+namespace ReadingTestScores
 {
     static class Program
     {
@@ -17,9 +14,9 @@ namespace ReadingDataExtrapulator
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
           
-            Main startUpForm = new Main();
-            Application.Run(startUpForm);
-            startUpForm.Show();
+            var startUpForm = new Main();
+           Application.Run(startUpForm);
+          startUpForm.Show();
         }
     }
 }

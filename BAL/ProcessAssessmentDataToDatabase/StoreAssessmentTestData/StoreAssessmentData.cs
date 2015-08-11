@@ -11,23 +11,24 @@ using ReadingTestScores.TestCollections.ProcessAssessmentDataToDatabase;
 using ReadingTestScores.ProcessAssessmentDataToDatabase.StoreAssessmentTestData.Save;
 namespace ReadingTestScores.ProcessAssessmentDataToDatabase.StoreAssessmentTestData
 {
+    public abstract class StoreAssessmentTest
+    {
+        public abstract void SaveData(List<TestAssessmentMeasurmentCollection> measures, List<TestAssessmentHeaderCollection> headerData);
+    }
     public class StoreAssessmentTestDataFactory : StoreAssessmentTest
     {
-     
-     
+ 
       public override void SaveData(List<TestAssessmentMeasurmentCollection> measures,List<TestAssessmentHeaderCollection > headerData)
       {
-          String className="";
-              Assembly currentAssembly = Assembly.GetExecutingAssembly();
+          Assembly currentAssembly = Assembly.GetExecutingAssembly();
               IEnumerable currentType = currentAssembly.GetTypes().Where(t => t.Namespace == "ReadingTestScores.ProcessAssessmentDataToDatabase.StoreAssessmentTestData.Save");
        
               foreach (Type p in currentType)
               {
-                  className = p.Name;
                   ISaveTest obj = (ISaveTest)Activator.CreateInstance(p);
                   MethodInfo method = p.GetMethod("Save");
-                  object[] AssessmentCollectionParameters = new object[] { measures, headerData };
-                  method.Invoke(obj, AssessmentCollectionParameters);
+                  object[] assessmentCollectionParameters = new object[] { measures, headerData };
+                  method.Invoke(obj, assessmentCollectionParameters);
                 
               }
               return;

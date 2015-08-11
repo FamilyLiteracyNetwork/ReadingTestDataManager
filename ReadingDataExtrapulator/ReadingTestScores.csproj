@@ -75,7 +75,7 @@
     <GenerateManifests>false</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>ReadingDataExtrapulator.Program</StartupObject>
+    <StartupObject>ReadingTestScores.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="BAL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -177,7 +177,9 @@
     <None Include="Properties\DataSources\Import_ExcelData.datasource" />
     <None Include="Properties\DataSources\Main.datasource" />
     <None Include="Properties\DataSources\Preview_Import.datasource" />
-    <None Include="Properties\DataSources\Program.datasource" />
+    <None Include="Properties\DataSources\Program.datasource">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\DataSources\ReadingDataExtrapulator.Properties.Resources.datasource" />
     <None Include="Properties\DataSources\ReadingDataExtrapulator.Properties.Settings.datasource" />
     <None Include="Properties\Settings.settings">

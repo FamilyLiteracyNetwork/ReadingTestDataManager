@@ -20,151 +20,10 @@ namespace ReadingTestScores
 
     }
 
-  
-    /*
-    public class OpenExcelDocument : AssessmentTest
-    {
-        public override Excel.Range Open(string studentFile, BackgroundWorker bgworker)
-        {
-
-            var _excelApp = new Excel.Application();
-            Excel.Workbook _excelWorkbook=null;
-            Excel.Worksheet _excelWorksheet=null;
-            Excel.Range range;
-
-            // Open Excel spreadsheet.
-            _excelWorkbook = _excelApp.Workbooks.Open(studentFile, Type.Missing, false, Type.Missing, Type.Missing,
-           Type.Missing, Type.Missing, Type.Missing, Type.Missing,
-           Type.Missing, Type.Missing, Type.Missing, Type.Missing,
-           Type.Missing, Type.Missing);
-
-          
-
-
-
-            string fName, lName, testDate;
-            int studentNo;
-
-
-
-            _excelWorksheet = (Excel.Worksheet)_excelWorkbook.Worksheets.get_Item(1);
-
-            range = _excelWorksheet.UsedRange;
-            Marshal.ReleaseComObject(_excelWorksheet);
-            Marshal.ReleaseComObject(_excelWorkbook);
-            Marshal.ReleaseComObject(_excelApp);
-            fName = Convert.ToString((range.Cells[7, 7] as Excel.Range).Value2);
-            lName = Convert.ToString((range.Cells[8, 7] as Excel.Range).Value2);
-            testDate = Convert.ToString((range.Cells[4, 4] as Excel.Range).Value2);
-            //Check to see if name exist in the student profile table
-            DAL.ReadingDataEntities db = new DAL.ReadingDataEntities();
-
-            /////////////////////////////////////////////////////////
-            //           Check to see if student exist             //
-            //        Otherwise and the student to the database    //
-            /////////////////////////////////////////////////////////
-          
-           
-            var queryStudent = (from p in db.StudentProfiles
-                                where p.First_Name == fName.Trim() && p.Last_Name == lName.Trim()
-                                select p).Count();
-            //Insert student into the student profile table 
-            if (queryStudent < 1)
-            {
-                StudentProfile _student = new StudentProfile();
-                _student.First_Name = fName;
-                _student.Last_Name = lName;
-            }
-            var studentAttributes = (from p in db.StudentProfiles
-                                     where p.First_Name == fName && p.Last_Name == lName
-                                     select p).FirstOrDefault();
-            ////////////////////////////////////////////////////////////
-            //                Generate Excel Header                   //
-            ////////////////////////////////////////////////////////////
-            var _excelAppGenerate = new Excel.Application();
-            Excel.Workbook _excelWorkbookGenerate=null;
-            Excel.Worksheet _excelWorksheetGenerate = null;
-
-            // creating new WorkBook within Excel application
-
-            _excelWorkbookGenerate = _excelAppGenerate.Workbooks.Add(Type.Missing);
-            // see the excel sheet behind the program
-
-            _excelAppGenerate.Visible = true;
-
-
-
-            // get the reference of first sheet. By default its name is Sheet1.
-
-            // store its reference to worksheet
-
-            _excelWorksheetGenerate = _excelWorkbookGenerate.Sheets["Sheet1"];
-
-            _excelWorksheetGenerate = _excelWorkbookGenerate.ActiveSheet;
-
-            _excelWorksheetGenerate.Name = "Student Reading Assessment";
-
-            // changing the name of active sheet
-
-            _excelWorksheet.Name = "Student Reading Assessment";
-            List<DAL.ReadingTestScores> readingScores = new List<DAL.ReadingTestScores>();
-            GenerateExcelDocParseScores GenerateExcelDoc = new GenerateBody();
-            IHeader BuildHeader = new GenerateExcelHeader();
-           BuildHeader.Create(1, 10, range, _excelWorksheetGenerate);
-
-            TestingAssessments ReadingAssessments = new TestingAssessment1();
-
-
-            ///////////////////////////////////////////////////////////////////////////////////////////////////
-            ////   Evaluate each Data Point Standard Score Raw Score t Scor and (ss) for a given student   ////
-            ///////////////////////////////////////////////////////////////////////////////////////////////////
-
-            studentNo = studentAttributes.StudentID;
-            int excelIndexNo;
-            int bookmark = 9;
-            Int32 percentageComplete=0;
-            bgworker.ReportProgress(percentageComplete);
-            System.Threading.Thread.Sleep(1);
-            for (int rowCnt = 11; rowCnt <= 25132; rowCnt++)
-            {
-                excelIndexNo = Convert.ToInt32((range.Cells[rowCnt, 1] as Excel.Range).Value2);
-                string scoreType =   scoreType = ((range.Cells[rowCnt, 3] as Excel.Range).Value2);
-               readingScores = ReadingAssessments.Assessments(studentNo, range, rowCnt, excelIndexNo,bgworker);
-           
-
-
-                var _currentRow = (from p in readingScores.ToList()
-                                   select p).LastOrDefault();
-                if (_currentRow != null)
-                {
-                    if (_currentRow.ExcelLastRowIndex != 0)
-                    {
-                        rowCnt = _currentRow.ExcelLastRowIndex;
-                        //Scan to verify Index
-
-                        //Add to Reading Scores to Database
-                        GenerateExcelDocParseScores BuildAssessmentDoc = new GenerateBody();
-                        BuildAssessmentDoc.Create(bookmark, readingScores.Count, range, _excelWorksheetGenerate, readingScores, bgworker);
-                       // StandardAssessment.SaveTest(scoreType);
-                      
-                        //    ReadingDataEntities dbTestScores= new ReadingDataEntities();
-                        bookmark = bookmark + readingScores.Count;
-                        _currentRow.ExcelLastRowIndex = 0;
-                    }
-
-                }
-                percentageComplete = Convert.ToInt32(((double)rowCnt / 25132) * 100);
-                bgworker.ReportProgress(percentageComplete);
-                System.Threading.Thread.Sleep(1);
-            }
-        }
-    }
-
-    */
-
-
     public class RejectTestIndex : ParseAssessmentTest
     {
+       
+
         public override List<EntireTestCollection> Open(string studentFile, List<EntireTestCollection> indicies,BackgroundWorker bgWorker)
         {
             String filename = string.Empty;
@@ -313,7 +172,6 @@ namespace ReadingTestScores
 
             
         }
-
     public class RetainTestIndex : ParseAssessmentTest
     {
         public override List<EntireTestCollection> Open(string studentFile, List<EntireTestCollection> indicies, BackgroundWorker bgWorker)
@@ -478,18 +336,12 @@ namespace ReadingTestScores
     }
 
 
+
     public abstract class ProcessingAssessmentTest
     {
         public abstract List<TestAssessmentMeasurmentCollection> GetTestMeasures(string studentFile);
         public abstract List<TestAssessmentHeaderCollection> GetHeader(string studentFile);
     }
-
-   
-    public abstract class StoreAssessmentTest
-    {
-        public abstract void SaveData(List<TestAssessmentMeasurmentCollection> measures, List<TestAssessmentHeaderCollection> headerData);
-    }
-
 
     public class AssessmentTestDataParser : ProcessingAssessmentTest
     {
@@ -498,33 +350,29 @@ namespace ReadingTestScores
             // Open Excel Workbook.
             String filename = string.Empty;
           
-            Excel.Application _excelApp = new Excel.Application();
-            Excel.Workbook _excelWorkbook;
-            Excel.Worksheet _excelWorksheet;          
-            Excel.Workbooks tmp = _excelApp.Workbooks;
+            Excel.Application excelApp = new Excel.Application();
+            Excel.Workbooks tmp = excelApp.Workbooks;
 
-            _excelWorkbook = tmp.Open(@studentFile, Type.Missing, true, Type.Missing, Type.Missing,
-            Type.Missing, Type.Missing, Type.Missing, Type.Missing,
-            Type.Missing, Type.Missing, Type.Missing, Type.Missing,
-            Type.Missing, Type.Missing);
+            var excelWorkbook = tmp.Open(@studentFile, Type.Missing, true, Type.Missing, Type.Missing,
+                Type.Missing, Type.Missing, Type.Missing, Type.Missing,
+                Type.Missing, Type.Missing, Type.Missing, Type.Missing,
+                Type.Missing, Type.Missing);
 
-            Excel.Range range;
-        
 
-            _excelApp.Visible = true;
+            excelApp.Visible = true;
 
-            _excelApp.DisplayAlerts = false;
+            excelApp.DisplayAlerts = false;
             //String activeworksheet = "Accepted Test Indicies";
-            _excelWorksheet = (Excel.Worksheet)_excelWorkbook.Worksheets.get_Item(1);
-            _excelWorksheet.Select(true);
-            _excelWorksheet.Unprotect();
-            _excelApp.AutomationSecurity = Microsoft.Office.Core.MsoAutomationSecurity.msoAutomationSecurityForceDisable;
+            var excelWorksheet = (Excel.Worksheet)excelWorkbook.Worksheets.Item[1];
+            excelWorksheet.Select(true);
+            excelWorksheet.Unprotect();
+            excelApp.AutomationSecurity = Microsoft.Office.Core.MsoAutomationSecurity.msoAutomationSecurityForceDisable;
             
            
-            range = _excelWorksheet.UsedRange;
+            var range = excelWorksheet.UsedRange;
 
-            _excelWorksheet.Cells[1, 1].EntireColumn.ColumnWidth = 15;
-            _excelWorksheet.Cells[1, 3].EntireColumn.ColumnWidth = 20;
+            excelWorksheet.Cells[1, 1].EntireColumn.ColumnWidth = 15;
+            excelWorksheet.Cells[1, 3].EntireColumn.ColumnWidth = 20;
 
        /*
         *Capture Student fullname from Excel file and then get their student number form the data store.
@@ -532,36 +380,40 @@ namespace ReadingTestScores
         */
 
             String fullname="";
-            fullname = Convert.ToString((range.Cells[2, 2] as Excel.Range).Value2);
-            IStudentProfile GetStudentAttribute = new GetStudentID();
+            var range1 = range.Cells[2, 2] as Excel.Range;
+            if (range1 != null)
+                fullname = Convert.ToString(range1.Value2);
+            IStudentProfile getStudentAttribute = new GetStudentID();
             int studentNumber=0;
-            studentNumber=GetStudentAttribute.StudentID(fullname);
+            studentNumber=getStudentAttribute.StudentID(fullname);
 
         /*Parse Student Assessment Data from Excel Open Excel Document*/
 
-            IEnumerateExcelTestAssessmentData ProcessStudentAssessmentData = new AssessmentTestDataEnumerator();
-            List<TestAssessmentMeasurmentCollection> testAttribute = new List<TestAssessmentMeasurmentCollection>();
-         
-          
-          testAttribute =ProcessStudentAssessmentData.EnumerateAllTestData(studentNumber.ToString(), range);
+            IEnumerateExcelTestAssessmentData processStudentAssessmentData = new AssessmentTestDataEnumerator();
+
+
+            var testAttribute = processStudentAssessmentData.EnumerateAllTestData(studentNumber.ToString(), range);
       
      
             
             /*Close Excel Workbook*/
 
-            _excelWorkbook.Close(0);
-            _excelApp.Application.Quit(); 
+            excelWorkbook.Close(0);
+            excelApp.Application.Quit(); 
             GC.Collect();
             GC.WaitForPendingFinalizers();
             Marshal.ReleaseComObject(tmp);
-            Marshal.ReleaseComObject(_excelWorksheet);
-            Marshal.ReleaseComObject(_excelWorkbook);
-            Marshal.ReleaseComObject(_excelApp);
+            Marshal.ReleaseComObject(excelWorksheet);
+            Marshal.ReleaseComObject(excelWorkbook);
+            Marshal.ReleaseComObject(excelApp);
 
             return testAttribute;
     }
- public override List<TestAssessmentHeaderCollection>  GetHeader(string studentFile)
-    {
+
+
+
+    public override List<TestAssessmentHeaderCollection>  GetHeader(string studentFile)
+        {
 
         // Open Excel Workbook.
         var filename = string.Empty;
